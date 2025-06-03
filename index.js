@@ -15,9 +15,9 @@ const ID_CUSTOM_OBJECT = '2-143436245'
 // TODO: ROUTE 1 - Create a new app.get route for the homepage to call your custom object data. Pass this data along to the front-end and create a new pug template in the views folder.
 
 app.get("/", async (req, res) => {
-    const artists = "https://api.hubapi.com/crm/v3/objects/" + ID_CUSTOM_OBJECT;
+    const musics = "https://api.hubapi.com/crm/v3/objects/" + ID_CUSTOM_OBJECT;
     const params =
-      "?properties=name&properties=duration&properties=genre&properties=date_of_composition&associations=contacts&archived=false";
+      "?properties=name&properties=duration&properties=date_of_composition&associations=contacts&archived=false";
   
     const headers = {
       Authorization: `Bearer ${PRIVATE_APP_ACCESS}`,
@@ -25,10 +25,10 @@ app.get("/", async (req, res) => {
     };
   
     try {
-      const response = await axios.get(artists + params, { headers });
+      const response = await axios.get(musics + params, { headers });
       res.render("homepage", {
         title: "Update Custom Object Form | Integrating With HubSpot I Practicum",
-        artists: response.data.results,
+        musics: response.data.results,
       });
     } catch (error) {
       console.error(error);

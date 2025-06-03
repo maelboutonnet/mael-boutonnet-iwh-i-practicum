@@ -1,0 +1,27 @@
+
+html 
+    head 
+        title= `${title}`
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        link(rel="stylesheet", href="/css/style.css")
+    body
+        h1 #{title}
+
+         h2 Custom Object Table
+
+        a(href="/update-cobj") Add/Update This Table
+        table.table(id="musics")
+            thead
+                tr
+                th Name
+                th Duration
+                th Date of composition
+                th Genre
+                tbody
+                each music in musics
+                    tr
+                        td #{music.properties.name}
+                        td #{music.properties.duration}
+                        td #{music.properties.date_of_composition}
+                        td #{music.properties.genre}
+                

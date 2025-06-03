@@ -1,5 +1,6 @@
 const express = require('express');
 const axios = require('axios');
+require("dotenv").config();
 const app = express();
 
 app.set('view engine', 'pug');
@@ -8,7 +9,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // * Please DO NOT INCLUDE the private app access token in your repo. Don't do this practicum in your normal account.
-const PRIVATE_APP_ACCESS = '';
+const PRIVATE_APP_ACCESS = process.env.PRIVATE_APP_ACCESS;
 
 const ID_CUSTOM_OBJECT = '2-143436245'
 
